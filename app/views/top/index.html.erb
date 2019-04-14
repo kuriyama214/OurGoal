@@ -1,0 +1,6 @@
+<div class="justify-content-center">
+    <%= form_for(@tweet) do |f| %>
+      <%= f.text_field :text, placeholder: "例：好きな食べ物は？" %>
+      <%= f.submit "投稿する" %>
+    <% end %>
+</div>
