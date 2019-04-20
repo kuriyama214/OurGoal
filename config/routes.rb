@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :users, only: [:show,:edit,:update]
   resources :tweets, only: [:show,:create]
+  resources :comments, only: [:new,:create]
 end

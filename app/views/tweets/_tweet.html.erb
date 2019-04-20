@@ -11,6 +11,13 @@
     <div class="tweet_box">
       <span class="tweet_text"><%= tweet.text %></span>
     </div>
+    <div class="questioned">
+      <%= link_to "コメント#{tweet.comments.count}件",tweet_path(tweet) %>
+    </div>
+    <%= form_tag(new_comment_path, method: :get, class: "tweet_submit") do %>
+      <%= hidden_field_tag(:tweet_id, tweet.id) %>
+      <%= submit_tag("コメントする") %>
+    <% end %>
   </div>
   </div>
 </div>

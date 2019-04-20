@@ -1,0 +1,14 @@
+<div class="row form">
+  <div class="col-lg-12">
+    <h3><%= @tweet.text %></h3>
+    <div class="group_action panel panel-default">
+      <div class="panel-body">
+        <%= link_to 'コメントする', new_comment_path(tweet_id: @tweet.id) %>
+      </div>
+    </div>
+    <% if @tweet.comments.present? %>
+      <h3><コメント一覧></h3>
+      <%= render partial: "tweets/comment", collection: @comments %>
+    <% end %>
+  </div>
+</div>
