@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'top/index'
-  devise_for :users
-    root to: "top#index"
-    resources :tweets
-    resources :users, only: [:show,:edit,:update]
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session_path
+  end
+  
+  root to: "top#index"
+  resources :users, only: [:show,:edit,:update]
+  resources :tweets, only: [:show,:create]
 end

@@ -6,8 +6,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-　　 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+　　<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <title>OurGoal</title>
   </head>
   <body>
@@ -15,6 +16,7 @@
       <%= render partial: 'common/header' %>
         <div class="row" style="background:#b0c4de">
             <%= yield %>
+            <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
         </div>
     </div>

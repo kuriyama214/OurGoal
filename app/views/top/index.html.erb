@@ -1,6 +1,21 @@
-<div class="justify-content-center">
-    <%= form_for(@tweet) do |f| %>
-      <%= f.text_field :text, placeholder: "例：好きな食べ物は？" %>
-      <%= f.submit "投稿する" %>
-    <% end %>
-</div>
+<% unless current_user.full_profile? %>
+  <header class="header_top panel panel-default col-lg-12 no-profile">
+    <h2>まずは、あなたのプロフィールを登録しましょう！</h2>
+    <p>OurGoalは同じ目標を持つ人をフォローしてモチベーションを高めるサービスです！</p>
+    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+  </header>
+<% else %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4 offset-5">
+          <%= form_for(@tweet) do |f| %>
+            <%= f.text_field :text, placeholder: "何かつぶやいてみよう" %>
+            <%= f.submit "ツイート" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+<%= render partial: "tweets/tweet", collection: @tweets %>
+<% end %>

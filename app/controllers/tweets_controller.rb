@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
     
-    def creat
-      @tweet = Tweet.new
+    def create
       Tweet.create(create_params)
       redirect_to :root and return
     end
